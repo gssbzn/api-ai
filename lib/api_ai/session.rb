@@ -6,10 +6,13 @@ module ApiAi
   class Session # :nodoc:
 
     # @param [String] access_token
-    # @param [String] subscription_key 
+    # @param [String] subscription_key
     def initialize(access_token, subscription_key)
       unless access_token.is_a?(String)
-        raise "bad type for oauth2_access_token (expecting String)"
+        raise "bad type for access_token (expecting String)"
+      end
+      unless subscription_key.is_a?(String)
+        raise "bad type for subscription_key (expecting String)"
       end
       @access_token = access_token
       @subscription_key = subscription_key
@@ -19,7 +22,8 @@ module ApiAi
 
     def build_url(path) # :nodoc:
       host = ApiAi::API_SERVER
-      URI::HTTPS.build({host: host, path: path})
+      full_path = "/v1/#{path}"
+      URI::HTTPS.build({host: host, path: full_path})
     end
 
     def build_url_with_params(path, params) # :nodoc:

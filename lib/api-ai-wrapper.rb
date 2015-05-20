@@ -11,7 +11,7 @@ module ApiAi
   # api.ai url
   WEB_SERVER = 'api.ai'
   # api.ai api path
-  API_SERVER = 'api.api.ai/v1'
+  API_SERVER = 'api.api.ai'
 
   API_VERSION = '20150520'
 
