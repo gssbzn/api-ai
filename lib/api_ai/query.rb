@@ -1,9 +1,9 @@
 module ApiAi
   module Query
-    def get(options={})
+    def query_get(options={})
     end
 
-    def post(params={})
+    def query_post(params={})
       raise ArgumentError.new("Required arguments 'query' missing") if params['query'].nil?
       raise ArgumentError.new("Required arguments 'sessionId' missing") if params['sessionId'].nil?
       raise ArgumentError.new("Required arguments 'lang' missing") if params['lang'].nil?
@@ -11,7 +11,7 @@ module ApiAi
       ApiAi::parse_response(response)
     end
 
-    def post_multipart(options={})
+    def query_post_multipart(options={})
     end
 
   end

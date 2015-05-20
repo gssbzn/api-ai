@@ -5,7 +5,8 @@ module ApiAi
 
   class Session # :nodoc:
 
-    # @param [String] oauth2_access_token user token
+    # @param [String] access_token
+    # @param [String] subscription_key 
     def initialize(access_token, subscription_key)
       unless access_token.is_a?(String)
         raise "bad type for oauth2_access_token (expecting String)"

@@ -57,7 +57,7 @@ module ApiAi
     begin
       http.request(request)
     rescue OpenSSL::SSL::SSLError => e
-      raise ApiAi::Error.new("SSL error connecting to Slack.")
+      raise ApiAi::Error.new("SSL error connecting to api.ai.")
     end
   end
 
