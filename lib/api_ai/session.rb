@@ -53,12 +53,11 @@ module ApiAi
     def do_http_with_body(uri, request, body) # :nodoc:
       if body != nil
         if body.is_a?(Hash)
+          request['Content-Type'] = 'application/json'
           request.body = ApiAi::clean_params(body).to_json
         elsif body.respond_to?(:read)
           if body.respond_to?(:length)
             request["Content-Length"] = body.length.to_s
-          elsif body.respond_to?(:stat) && body.stat.respond_to?(:size)
-            request["Content-Length"] = body.stat.size.to_s
           else
             raise ArgumentError, "Don't know how to handle 'body' (responds to 'read' but not to 'length' or 'stat.size')."
           end
@@ -76,7 +75,7 @@ module ApiAi
       headers ||= {}
       headers["Authorization"] = "Bearer #{@access_token}"
       headers["ocp-apim-subscription-key"] = "Bearer #{@subscription_key}"
-      headers['Content-Type'] = 'application/json'
+
       uri = build_url_with_params(path, "v" => ApiAi::API_VERSION)
       do_http_with_body(uri, Net::HTTP::Post.new(uri.request_uri, headers), params)
     end

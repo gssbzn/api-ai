@@ -2,12 +2,12 @@
 # MIT License
 
 require_relative 'session'
-require_relative 'query'
+require_relative 'endpoint'
 
 module ApiAi
   # Use this class to make api.ai calls.
   class Client
-    include Query
+    include Endpoint
 
     # @param [String] access_token developer token
     # @param [String] subscription_key subscription token

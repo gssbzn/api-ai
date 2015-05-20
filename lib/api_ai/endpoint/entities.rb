@@ -2,5 +2,8 @@
 # MIT License
 
 module ApiAi
-  VERSION = "0.0.1"
+  module Endpoint
+    module Entities
+    end
+  end
 end

@@ -1,3 +1,6 @@
+# Copyright (c) 2015 Gustavo Bazan
+# MIT License
+
 require 'net/https'
 require 'cgi'
 require 'json'
