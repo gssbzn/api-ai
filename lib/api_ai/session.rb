@@ -53,7 +53,7 @@ module ApiAi
     def do_http_with_body(uri, request, body) # :nodoc:
       if body != nil
         if body.is_a?(Hash)
-          request.body(ApiAi::clean_params(body).to_json)
+          request.body = ApiAi::clean_params(body).to_json
         elsif body.respond_to?(:read)
           if body.respond_to?(:length)
             request["Content-Length"] = body.length.to_s
