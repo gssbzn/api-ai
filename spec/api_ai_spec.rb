@@ -10,7 +10,7 @@ describe ApiAi do
   end
 
   it 'has api uri' do
-    expect(ApiAi::API_SERVER).to eq('api.api.ai/v1')
+    expect(ApiAi::API_SERVER).to eq('api.api.ai')
   end
 
   describe '::clean_params' do
