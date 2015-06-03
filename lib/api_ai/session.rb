@@ -53,7 +53,7 @@ module ApiAi
     def do_http_with_body(uri, request, body) # :nodoc:
       if body != nil
         if body.is_a?(Hash)
-          request['Content-Type'] = 'application/json'
+          request['Content-Type'] = 'application/json; charset=utf-8'
           request.body = ApiAi::clean_params(body).to_json
         elsif body.respond_to?(:read)
           if body.respond_to?(:length)
