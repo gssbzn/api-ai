@@ -77,7 +77,7 @@ module ApiAi
       raise ApiAi::AuthError.new("Not authenticated.", response)
     elsif !response.kind_of?(Net::HTTPSuccess)
       begin
-        d = JSON.parse(response.body)
+        d = JSON.parse(response.body.force_encoding("UTF-8"))
       rescue
         raise ApiAi::Error.new("api.ai Error: body=#{response.body}", response)
       end
