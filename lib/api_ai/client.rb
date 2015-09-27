@@ -15,7 +15,7 @@ module ApiAi
       if access_token.is_a?(String) && subscription_key.is_a?(String)
         @session = Session.new(access_token, subscription_key)
       else
-        raise ArgumentError.new("access_token or subscription_key doesn't have a valid type")
+        fail ArgumentError, "access_token or subscription_key doesn't have a valid type"
       end
     end
   end

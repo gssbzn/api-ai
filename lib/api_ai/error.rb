@@ -11,7 +11,7 @@ module ApiAi
 
     attr_accessor :http_response, :error
 
-    def initialize(error, http_response=nil)
+    def initialize(error, http_response = nil)
       @error = error
       @http_response = http_response
     end
